@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @question.question %>
+</p>
+
+<p>
+  <strong>Asked by:</strong>
+  <%= @question.asked_by %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @question.created_at %>
+</p>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>
