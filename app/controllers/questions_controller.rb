@@ -2,7 +2,11 @@ class QuestionsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    render json: {question: Question.order(created_at: :desc)}
+    if params[:filter].present?
+      render json: {question: Question.where(question: params[:filter][:question])} 
+    else
+      render json: {question: Question.order(created_at: :desc)}
+    end
   end
 
   def show

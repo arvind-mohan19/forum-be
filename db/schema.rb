@@ -10,18 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213093048) do
+ActiveRecord::Schema.define(version: 20171220084035) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "qid"
     t.string "answer"
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "upvotes"
+    t.integer "downvotes"
   end
 
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "question"
     t.string "asked_by"
+    t.datetime "created_at", null: false
+    t.integer "inappropriate", default: 0
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "email"
+    t.string "name"
+    t.string "google_id"
+    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
