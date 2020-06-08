@@ -27,7 +27,7 @@ class TokensController < ApplicationController
     Signet::OAuth2::Client.new(
       authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
       token_credential_uri: 'https://www.googleapis.com/oauth2/v3/token',
-      client_id: "879430880241-vgdil2jth9nfpr3ep1ted4usr4ugtq16.apps.googleusercontent.com", client_secret: "q8-tivtqj5ux7wRv83Rw6lP6",
+      client_id: "", client_secret: "",
       scope: 'email profile', redirect_uri: 'http://localhost:4200/oauth2callback'
     ).tap do |client|
       client.code = params['code']
